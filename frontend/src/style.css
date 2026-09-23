@@ -1,0 +1,95 @@
+:root {
+  --header-height: 56px;
+  --bg: #ffffff;
+  --text: #0f172a;
+  --border: rgba(128, 128, 128, 0.25);
+  --muted: #64748b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans TC", sans-serif;
+}
+
+.app-header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.app-status {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Clicked county paths get focus; hide Chrome's rectangular focus ring around the SVG bbox */
+path.leaflet-interactive:focus {
+  outline: none;
+}
+
+/* Leaflet popup is always light, so use fixed colors (not theme tokens) */
+.station-popup {
+  font-size: 13px;
+  line-height: 1.6;
+  min-width: 180px;
+  color: #0f172a;
+}
+
+.station-popup__name {
+  color: #2563eb;
+  font-size: 14px;
+}
+
+.station-popup__id,
+.station-popup__location {
+  color: #64748b;
+}
+
+.station-popup__divider {
+  margin: 6px 0;
+  border: none;
+  border-top: 1px solid #e2e8f0;
+}
+
+.station-popup__rows {
+  margin: 0;
+}
+
+.station-popup__row {
+  display: flex;
+}
+
+.station-popup__row dt,
+.station-popup__row dd {
+  margin: 0;
+}
+
+#map {
+  height: calc(100% - var(--header-height));
+  width: 100%;
+}
